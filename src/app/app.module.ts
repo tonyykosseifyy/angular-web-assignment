@@ -6,21 +6,21 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ActorSearchComponent } from './actor-search/actor-search.component';
-// import { ActorMoviesComponent } from './actor-movies/actor-movies.component';
-// import { FavoriteActorsComponent } from './favorite-actors/favorite-actors.component';
+import { ActorMoviesComponent } from './actor-movies/actor-movies.component';
+import { FavoriteActorsComponent } from './favorite-actors/favorite-actors.component';
 
 const routes: Routes = [
   { path: '', component: ActorSearchComponent },
-  // { path: 'actor/:id', component: ActorMoviesComponent },
-  // { path: 'favorites', component: FavoriteActorsComponent },
+  { path: 'actor/:id', component: ActorMoviesComponent },
+  { path: 'favorites', component: FavoriteActorsComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ActorSearchComponent,
-    // ActorMoviesComponent,
-    // FavoriteActorsComponent
+    ActorMoviesComponent,
+    FavoriteActorsComponent
   ],
   imports: [
     BrowserModule,

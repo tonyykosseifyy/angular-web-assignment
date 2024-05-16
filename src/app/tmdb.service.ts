@@ -16,7 +16,27 @@ export class TmdbService {
     return this.http.get<{ results: Actor[] }>(`${this.apiUrl}/search/person?query=${query}&include_adult=false&language=en-US&page=1&api_key=${environment.apiKey}`);
   }
 
+  searchAllActors(): Observable<{ results: Actor[] }> {
+    return this.http.get<{ results: Actor[] }>(`${this.apiUrl}/trending/person/day?api_key=${environment.apiKey}`);
+  }
+
   getActorMovies(actorId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/person/${actorId}/movie_credits?language=en-US&api_key=${environment.apiKey}`);
+  }
+
+  getFavoriteActors(): any[] {
+    return JSON.parse(localStorage.getItem('favoriteActors') || '[]');
+  }
+
+  addFavoriteActor(actor: any) {
+    const favorites = this.getFavoriteActors();
+    favorites.push(actor);
+    localStorage.setItem('favoriteActors', JSON.stringify(favorites));
+  }
+
+  removeFavoriteActor(actorId: number) {
+    let favorites = this.getFavoriteActors();
+    favorites = favorites.filter(actor => actor.id !== actorId);
+    localStorage.setItem('favoriteActors', JSON.stringify(favorites));
   }
 }
