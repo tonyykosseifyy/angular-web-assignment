@@ -75,3 +75,6 @@
     opacity: 0.8;
   }
   
+  .fa-star, .fa-star-half-alt, .fa-star {
+    color: #ffca28;
+  }
