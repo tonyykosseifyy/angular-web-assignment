@@ -39,4 +39,9 @@ export class TmdbService {
     favorites = favorites.filter(actor => actor.id !== actorId);
     localStorage.setItem('favoriteActors', JSON.stringify(favorites));
   }
+  isFavorite(actorId: number): boolean {
+    const favorites = this.getFavoriteActors();
+    return favorites.some(actor => actor.id === actorId);
+  }
+
 }

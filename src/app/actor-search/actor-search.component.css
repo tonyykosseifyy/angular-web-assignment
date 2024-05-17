@@ -1,0 +1,153 @@
+/* Container for the entire search section */
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Search input and button styling */
+  .search-container input {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 7px;
+  }
+  
+  .search-container button:hover {
+    opacity: .8;
+  }
+  
+  /* Container for the gallery of actor items */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Each actor item */
+  .actor-item {
+    background: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    position: relative;  /* Added to allow absolute positioning of children */
+    transition: transform 0.3s ease;
+  }
+  
+  .actor-item:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Actor image */
+  .actor-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  
+  /* Actor name */
+  .actor-item h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  /* Known for titles */
+  .actor-item p {
+    font-size: 0.9em;
+    color: #666;
+    padding: 0 10px;
+  }
+  
+  /* Favorite button */
+  .favorite-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    color: #ff4757;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .favorite-button:hover {
+    color: #ff6b81;
+  }
+  
+  /* Success modal */
+  .success-modal {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: 2px solid #28a745;
+    color: white;
+    padding: 0px 25px;
+    border-radius: 6px;
+    animation: slideIn 0.5s forwards, fadeOut 0.5s 2.5s forwards;
+    color: #28a745 ;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    z-index: 99 ;
+
+  }
+  
+  /* Warning modal */
+  .warning-modal {
+    z-index: 99 ;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: 2px solid #ffc107;
+    color: black;
+    padding: 0px 25px;
+    border-radius: 8px;
+    color: #ffc107;
+    animation: slideIn 0.5s forwards, fadeOut 0.5s 2.5s forwards;
+    display: flex;
+    align-items: center;
+    background-color: white;
+  }
+  
+  /* Slide in animation */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Fade out animation */
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .success-modal i,
+.warning-modal i {
+  font-size: 1em;
+  margin-right: 10px;
+}

@@ -10,6 +10,9 @@ import { Actor, Movie } from '../interfaces';
 export class ActorSearchComponent implements OnInit {
   query: string = '';  // The query can be set dynamically based on user input
   actors: Actor[] = [];
+  showModal: boolean = false;
+  modalMessage: string = '';
+  modalType: string = '';  // Can be 'success' or 'warning'
 
   constructor(private tmdbService: TmdbService) {}
 
@@ -38,10 +41,30 @@ export class ActorSearchComponent implements OnInit {
   }
 
   addFavorite(actor: any) {
-    this.tmdbService.addFavoriteActor(actor);
+    if (this.tmdbService.isFavorite(actor.id)) {
+      this.tmdbService.removeFavoriteActor(actor.id);
+      this.showSuccessModal('Removed from favorites', 'warning');
+    } else {
+      this.tmdbService.addFavoriteActor(actor);
+      this.showSuccessModal('Added to favorites', 'success');
+    }
   }
 
-  // removeFavorite(actorId: number) {
-  //   this.tmdbService.removeFavoriteActor(actorId);
-  // }
+  showSuccessModal(message: string, type: string) {
+    this.modalMessage = message;
+    this.modalType = type;
+    this.showModal = true;
+    setTimeout(() => {
+      this.showModal = false;
+    }, 3000);  // Modal will disappear after 3 seconds
+  }
+
+  isFavorite(actorId: number): boolean {
+    return this.tmdbService.isFavorite(actorId);
+  }
+
+  resetSearch() {
+    this.query = '';
+    this.searchAllActors();
+  }
 }

@@ -1,14 +1,23 @@
-<div>
+<div class="search-container">
   <input [(ngModel)]="query" placeholder="Search for actors" />
   <button (click)="searchActors(query)">Search</button>
+  <button (click)="resetSearch()">Reset</button>
 </div>
-<div *ngIf="actors.length > 0">
-  <div *ngFor="let actor of actors">
-    <a [routerLink]="['/actor', actor.id]">
-      <img [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" alt="{{ actor.name }}" />
-      <h3>{{ actor.name }}</h3>
-    </a>
-    <p>{{ actor.knownForTitles }}</p>
-    <button (click)="addFavorite(actor)">Add to Favorites</button>
-  </div>
+<div *ngIf="actors.length > 0" class="gallery">
+  <ng-container *ngFor="let actor of actors">
+    <div *ngIf="actor.profile_path" class="actor-item">
+      <button class="favorite-button" (click)="addFavorite(actor)">
+        <i [ngClass]="isFavorite(actor.id) ? 'fas fa-heart' : 'far fa-heart'"></i>
+      </button>
+      <a [routerLink]="['/actor', actor.id]">
+        <img [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" alt="{{ actor.name }}" />
+        <h3>{{ actor.name }}</h3>
+      </a>
+      <p>{{ actor.knownForTitles }}</p>
+    </div>
+  </ng-container>
+</div>
+<div *ngIf="showModal" [ngClass]="modalType === 'success' ? 'success-modal' : 'warning-modal'">
+  <i [ngClass]="modalType === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle'"></i>
+  <p>{{ modalMessage }}</p>
 </div>
