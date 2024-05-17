@@ -1,0 +1,85 @@
+/* Container for the entire search section */
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Search input and button styling */
+  .search-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  /* Container for the gallery of actor items */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Each actor item */
+  .actor-item {
+    background: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    position: relative;  /* Added to allow absolute positioning of children */
+    transition: transform 0.3s ease;
+  }
+  
+  .actor-item:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Actor image */
+  .actor-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  
+  /* Actor name */
+  .actor-item h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  /* Known for titles */
+  .actor-item p {
+    font-size: 0.9em;
+    color: #666;
+    padding: 0 10px;
+  }
+  
+  /* Favorite button */
+  .favorite-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    color: #ff4757;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .favorite-button:hover {
+    color: #ff6b81;
+  }
+  
+  /* No favorites message */
+  .no-favorites {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2em;
+    color: #666;
+  }
+  

@@ -99,5 +99,14 @@
   }
 
 </style>
-
-<router-outlet />
+<nav class="navbar">
+  <a routerLink="/" class="nav-link">
+    <i class="fas fa-home"></i>
+    Home
+  </a>
+  <a routerLink="/favorites" class="nav-link">
+    <i class="fas fa-heart"></i>
+    Favorite Actors
+  </a>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,77 @@
+/* Container for the movie items */
+.movies-grid {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(3, minmax(200px, 300px));
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Each movie item */
+  .movie-item {
+    background: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .movie-item:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Movie poster image */
+  .movie-item img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  
+  /* Container for movie details */
+  .movie-info {
+    padding: 10px;
+  }
+  
+  /* Movie title */
+  .movie-info h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  /* Movie overview */
+  .movie-info p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  /* Pagination controls */
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-controls button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination-controls button:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+  

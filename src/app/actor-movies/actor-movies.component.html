@@ -1,16 +1,21 @@
 <div *ngIf="movies.length > 0">
-    <div *ngFor="let movie of paginatedMovies" class="movie-item">
-      <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}" />
-      <div class="movie-info">
-        <h3>{{ movie.title }}</h3>
-        <p>{{ movie.overview }}</p>
-        <p>Release Date: {{ movie.release_date }}</p>
-        <p>Popularity: {{ movie.popularity }}</p>
+    <div class="movies-grid">
+      <div *ngFor="let movie of paginatedMovies" class="movie-item">
+        <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}" />
+        <div class="movie-info">
+          <h3>{{ movie.title }}</h3>
+          <p>{{ movie.overview }}</p>
+          <p>Release Date: {{ movie.release_date }}</p>
+          <p>Popularity: {{ movie.popularity }}</p>
+        </div>
       </div>
     </div>
     <div class="pagination-controls">
       <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
       <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
     </div>
+  </div>
+  <div *ngIf="movies.length === 0">
+    <p>No movies found for this actor.</p>
   </div>
   

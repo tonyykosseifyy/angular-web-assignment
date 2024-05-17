@@ -1,11 +1,21 @@
-<div *ngIf="favoriteActors.length > 0">
-    <div *ngFor="let actor of favoriteActors">
-      <img [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" alt="{{ actor.name }}" />
-      <h3>{{ actor.name }}</h3>
-      <button (click)="removeFavorite(actor.id)">Remove from Favorites</button>
-    </div>
+<div class="search-container">
+    <h1>Your Favorite Actors</h1>
   </div>
-  <div *ngIf="favoriteActors.length === 0">
-    <p>No favorite actors.</p>
+  <div *ngIf="favoriteActors.length > 0" class="gallery">
+    <ng-container *ngFor="let actor of favoriteActors">
+      <div *ngIf="actor.profile_path" class="actor-item">
+        <button class="favorite-button" (click)="removeFavorite(actor)">
+          <i class="fas fa-heart"></i>
+        </button>
+        <a [routerLink]="['/actor', actor.id]">
+          <img [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" alt="{{ actor.name }}" />
+          <h3>{{ actor.name }}</h3>
+        </a>
+        <p>{{ actor.knownForTitles }}</p>
+      </div>
+    </ng-container>
+  </div>
+  <div *ngIf="favoriteActors.length === 0" class="no-favorites">
+    <p>You have no favorite actors yet.</p>
   </div>
   
